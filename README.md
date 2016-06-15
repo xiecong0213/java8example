@@ -1,2 +1,2 @@
 # java8example
-all jdk8 feature you want.
+Examples will show you a magic power of java8!

@@ -26,7 +26,5 @@ public class StreamOthers {
                 .max()
                 .ifPresent(System.out::println);
 
-
-
     }
 }
