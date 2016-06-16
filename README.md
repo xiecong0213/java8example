@@ -55,15 +55,18 @@ Lambda expressions are introduced in Java 8 and are touted to be the biggest fea
 
 2. Method Reference
 
-	```
 	Method reference is abbreviation of lambda expression
 
-  	Method reference	 	Equivalent lambda expression
-  	-------------------------------------------------
-  	String::valueOf			x -> String.valueOf(x)
-  	Object::toString		(x) -> x.toString()
-  	x::toString		    	() -> x.toString()
-  	ArrayList::new			() -> new ArrayList<>()
+  	Method reference |	 	Equivalent lambda expression
+  	-------------------|------------------------------
+  	String::valueOf		|	x -> String.valueOf(x)
+  	Object::toString	|	(x) -> x.toString()
+  	x::toString		    |	() -> x.toString()
+  	ArrayList::new		|	() -> new ArrayList<>()
+
+
+	```
+
   	
   	some code example:
   	
@@ -84,14 +87,21 @@ Lambda expressions are introduced in Java 8 and are touted to be the biggest fea
 	
 3. jdk8 support common functional inferface for lambda
 
-   ```
-  a lot of commonly useful FunctionalInterface are added to JDK8.
-      Function<T,R> T as input,R as output,use for map one object to another object 
-      Predicate<T> T as input,return Boolean,use for filter and other scenario which need judge true or false
+	a lot of commonly useful FunctionalInterface are added to JDK8.
+
+	Function<T,R> T as input,R as output,use for map one object to another object 
+
+	Predicate<T> T as input,return Boolean,use for filter and other scenario which need judge true or false
+	
       Consumer<T> - T as input, perform some action and don't return anything
+      
       Supplier<T> - with nothing as input, return a T
+      
       BinaryOperator<T> - take two T's as input, return one T as output, useful for "reduce" operations
+
       ......
+
+   ```
    
    some examples:
    
@@ -119,14 +129,16 @@ Lambda expressions are introduced in Java 8 and are touted to be the biggest fea
       
 4. Capturing
 
-	```
 	Lambdas are said to be "capturing" if they access a non-static variable or object that was defined outside of the lambda body. For example, this lambda captures the variable x:
-int x = 5;
-return y -> x + y;
-this may cause performance problem,when execute the capturing lambda expression,a new instance of an anonymous class will be created.
+
+	int x = 5;
+
+	return y -> x + y;
+
+	this may cause performance problem,when execute the capturing lambda expression,a new instance of an anonymous class will be created.
 output of the object hashcode proved capturing may cause performance problem
 @see com.tutorial.java8.lambda.LambdaExpressionCapturing
-	```
+
 5. Constrain
 
 	
@@ -175,7 +187,6 @@ A stream provides a fluent API for transforming values and performing some actio
 
 1. Create Stream
 
-	``` 
  	* call collection.stream() or parallelStream method get a stream
  	* Arrays.stream(Object[])
  	* Stream static method, Stream.of, IntStream.range,Stream.generate,Stream.iterate</li>
@@ -184,14 +195,14 @@ A stream provides a fluent API for transforming values and performing some actio
  	* Random.ints()
  	* other static method,BitSet.stream(),Pattern.splitAsStream(java.lang.CharSequence)
  	
- 	examples:
+
  	@see com.tutorial.java8.stream.StreamCreate
-	```
+ 	
 2. Intermediate operate
 
-	```	
-	 Intermediate - An intermediate operation keeps the stream open and allows further operations to follow.The return type of these methods is Stream; they return the current stream to allow chaining of more operations.
-	 * filter:Returns a stream consisting of the elements of this stream that match the given predicate
+	Intermediate - An intermediate operation keeps the stream open and allows further operations to follow.The return type of these methods is Stream; they return the current stream to allow chaining of more operations.
+	
+	* filter:Returns a stream consisting of the elements of this stream that match the given predicate
 	 * map:Returns a stream consisting of the results of applying the given function to the elements of this stream
 	* flatMap:Returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element.
 	* peek:Perform some action on each element as it is encountered. Primarily useful for debugging
@@ -199,7 +210,8 @@ A stream provides a fluent API for transforming values and performing some actio
 	* sorted: Ensure that stream elements in subsequent operations are encountered according to the order imposed by a Comparator. This is a stateful operation.
 	* limit:Ensure that subsequent operations only see up to a maximum number of elements. This is a stateful, short-circuiting operation.
 	* skip:Ensure that subsequent operations do not see the first n elements. This is a stateful operation.
-	
+
+	```	
 	examples:
 	
 	Map<String, List<Student>> school = new HashMap();
@@ -216,8 +228,6 @@ A stream provides a fluent API for transforming values and performing some actio
 	```
 	
 3. Terminal Operation
-
-	```
 	* forEach: Perform some action for each element in the stream.
 	* toArray: Dump the elements in the stream to an array.
 	* reduce: Combine the stream elements into one using a BinaryOperator.
@@ -230,8 +240,8 @@ A stream provides a fluent API for transforming values and performing some actio
 	* noneMatch: Find out whether zero elements in the stream match a Predicate. This is a short-circuiting operation.
 	* findFirst: Find the first element in the stream. This is a short-circuiting operation.
 	* findAny: Find any element in the stream, which may be cheaper than findFirst for some streams. This is a short-circuiting operation.
-	
-	some examples:
+
+	```
 	
 	System.out.println("collect:");
         List<Integer> collectionList = IntStream.range(0, 5).boxed().filter(x -> x % 2 == 0).collect(Collectors.toList());
@@ -270,14 +280,13 @@ A stream provides a fluent API for transforming values and performing some actio
 	```
 4. Parallel Stream
 
-	```
-	
 	The actions of a parallel stream may be happening all at once on multiple threads.
-	parallel stream can promote performance,particular in big stream
-	you can use vm param control parallel threadpool
+parallel stream can promote performance,particular in big stream
+you can use vm param control parallel threadpool
 -Djava.util.concurrent.ForkJoinPool.common.parallelism=5
 
-	examples:
+
+	```
 	List<Student> studentList = Arrays.asList(new Student("Joe", 21, 96.0), new Student("Lily", 23, 99.0),new Student("LiLei",24,59.0),new Student("James",29,88.0));
 
         Integer ageSum = studentList.parallelStream().reduce(0,(sum,student)->{
