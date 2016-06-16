@@ -12,10 +12,10 @@ import java.util.concurrent.atomic.AtomicLong;
  * <p>
  * Method reference	 	Equivalent lambda expression
  * -------------------------------------------------
- * String::valueOf		x -&gt; String.valueOf(x)
- * Object::toString		(x) -&gt; x.toString()
- * x::toString		    () -&gt; x.toString()
- * ArrayList::new		() -&gt; new ArrayList&lt;&gt;()
+ * String::valueOf		x -> String.valueOf(x)
+ * Object::toString		(x) -> x.toString()
+ * x::toString		    () -> x.toString()
+ * ArrayList::new		() -> new ArrayList<>()
  * </p>
  */
 public class LambdaExpressionMethodReference {

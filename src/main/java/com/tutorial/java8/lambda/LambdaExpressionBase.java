@@ -15,9 +15,6 @@ public class LambdaExpressionBase {
 
     @FunctionalInterface
     interface PrintHello {
-        /**
-         * method only one param
-         */
         void print();
     }
 
