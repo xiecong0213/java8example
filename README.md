@@ -300,4 +300,9 @@ you can use vm param control parallel threadpool
         });
 
 	```
+5. Fluent API Pattern
+
+	Stream provide a good idea about lazy initialization and fluent api.
+
+	In package com.tutorial.java8.stream.fluentapipattern realize the idea.
 ## TO BE CONTINUE
