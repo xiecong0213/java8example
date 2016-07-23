@@ -24,6 +24,7 @@ public class LambdaExpressionConstraints {
         values.forEach(s -> {
             if (secret.equals(s)) {
                  // want to end the loop and return true, but can't
+
             }
         });
         return true;

@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 /**
  * Created by xiecong on 16/6/4.
  */
+@FunctionalInterface
 public interface CarFactory {
 
     Car createCar(EnumCarType type);

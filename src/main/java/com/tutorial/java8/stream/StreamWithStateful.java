@@ -17,7 +17,7 @@ public class StreamWithStateful {
     }
 
     public static void main(String[] args) {
-        Stream<Integer> sl = IntStream.range(0,10).boxed().parallel().map(e -> {
+        Stream<Integer> sl = IntStream.range(0,20).boxed().parallel().map(e -> {
             if (stateHoldClass.curState)
                 return 0;
             else {

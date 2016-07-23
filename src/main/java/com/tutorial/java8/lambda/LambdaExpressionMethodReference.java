@@ -51,6 +51,7 @@ public class LambdaExpressionMethodReference {
 
         AtomicLong l = new AtomicLong(0);
         NonStaticMethodReference nonStaticMethodReference = l::incrementAndGet; //equal: () -> l.incrementAndGet()
+
         System.out.println("nonStaticMethodReference: " + nonStaticMethodReference.incr());
 
         ConstructorMethodReference<Integer> constructorMethodReference = ArrayList<Integer>::new; // equal: () -> new ArrayList<>();

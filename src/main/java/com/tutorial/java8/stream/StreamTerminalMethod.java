@@ -110,7 +110,7 @@ public class StreamTerminalMethod {
                 .parallelStream()
                 .collect(personNameCollector);
 
-        System.out.println(names);
+        System.out.println("names:" + names);
     }
 
     private static void testReduce() {

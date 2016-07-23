@@ -30,7 +30,7 @@ public class LambdaExpressionCapturing {
         //capture x in captureConsumer.accept() method
         IntStream.range(0,3).forEach(i -> printCaptureConsumerObject(t -> {int z = x+1;}));
 
-        //if we change x value, compile failed,x must be final or effectively final
+//        if we change x value, compile failed,x must be final or effectively final
 //        x= 1;
 
         InterfaceStaticMethod.printSpliter();

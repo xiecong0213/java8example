@@ -43,9 +43,9 @@ public class StreamIntermediateMethod {
 
     private static void testMix() {
         Map<String, List<Student>> school = new HashMap();
-        school.put("mathClass", Arrays.asList(new Student("Joe", 21, 96.0), new Student("Lily", 23, 99.0),new Student("LiLei",24,59.0)));
-        school.put("SportClass", Arrays.asList(new Student("James", 24, 98.0), new Student("Messi", 28, 100.0),new Student("HanMeiMei",24,56.0)));
-        school.put("filterdClass", Arrays.asList(new Student("James", 24, 98.0), new Student("Messi", 28, 100.0),new Student("HanMeiMei",24,56.0)));
+        school.put("mathClass", Arrays.asList(new Student("Joe", 21, 96.0), new Student("Lily", 23, 99.0), new Student("LiLei", 24, 59.0)));
+        school.put("SportClass", Arrays.asList(new Student("James", 24, 98.0), new Student("Messi", 28, 100.0), new Student("HanMeiMei", 24, 56.0)));
+        school.put("filterdClass", Arrays.asList(new Student("James", 24, 98.0), new Student("Messi", 28, 100.0), new Student("HanMeiMei", 24, 56.0)));
 
         //order by student score desc
         Map<String, List<Student>> ordered = school.entrySet().stream().filter(e -> e.getKey() != "filterdClass")

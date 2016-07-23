@@ -56,7 +56,7 @@ public class StreamCreate {
     private static void createStreamFromCollection(){
         List<String> stringList = Arrays.asList("a","b","c");
         System.out.println("create from list:");
-        stringList.forEach(System.out::println);
+        stringList.forEach((x) -> System.out.println(x));
 
         System.out.println("create from Set:");
         Set<String> stringSet = new HashSet<>(Arrays.asList("d","e","f"));
@@ -87,7 +87,8 @@ public class StreamCreate {
 
     private static void createStreamFromRandom() {
         Random random = new Random();
-        String join = random.ints().limit(3).mapToObj(String::valueOf).collect(Collectors.joining(", "));
+        String join = random.ints(3).mapToObj(String::valueOf).collect(Collectors.joining(", "));
+        Stream.generate(() -> random.nextInt(10)).limit(3).forEach(System.out::println);
         System.out.println("craete stream from random:" + join);
     }
 
