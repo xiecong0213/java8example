@@ -57,7 +57,7 @@ public class LambdaExpressionMethodReference {
         ConstructorMethodReference<Integer> constructorMethodReference = ArrayList<Integer>::new; // equal: () -> new ArrayList<>();
         ArrayList<Integer> arrayList = constructorMethodReference.get();
         System.out.println("constructorMethodReference: " + arrayList);
-
+        System.out.println("hello,I want to merge the code!!!");
 
     }
 }
